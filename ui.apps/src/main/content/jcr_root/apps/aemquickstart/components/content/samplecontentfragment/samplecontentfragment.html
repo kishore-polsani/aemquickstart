@@ -22,3 +22,12 @@ Description: ${model.description}
 Release Date: ${model.releaseDate}
 <img src="${model.image}"></img>
 </sly>
+
+
+<h1>Client IP</h1>
+<!-- client-ip.html (HTL template) -->
+<sly data-sly-use.clientip="com.adobe.aemquickstart.core.models.GetClientIpAddress">
+    <p>Client's IP Address: ${clientip.clientIPAddress}</p>
+    <p>X-Forwarded for: ${clientip.xForwardedFor}</p>
+    <p>Real IP Address: ${clientip.realIP}</p>
+</sly>
