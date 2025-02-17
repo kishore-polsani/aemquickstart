@@ -47,4 +47,4 @@ jobs:
           args: >
               -Dsonar.organization=kishore-polsani
               -Dsonar.projectKey=aemquickstart
-              -Dsonar.python.coverage.reportPaths=coverage.xml
+              -Dsonar.java.binaries=**/target/classes
