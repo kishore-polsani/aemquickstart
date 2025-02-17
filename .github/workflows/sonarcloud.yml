@@ -45,6 +45,6 @@ jobs:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-              -Dsonar.organization=kishore-polsani
+              -Dsonar.organization=kishore polsani
               -Dsonar.projectKey=aemquickstart
               -Dsonar.java.binaries=**/target/classes
