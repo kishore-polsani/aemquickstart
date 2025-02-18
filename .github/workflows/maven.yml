@@ -6,8 +6,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Maven CI
 
+#on:
+ # pull_request:
 on:
   push:
     branches: [ "master" ]
@@ -21,12 +23,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 17
+    - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
-        distribution: 'temurin'
+        java-version: '11'
+        distribution: 'Lemurian'
         cache: maven
+
+      # Set up dependency cache
+    - name: Cache local Maven repository
+      uses: actions/cache@v2
+      with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
